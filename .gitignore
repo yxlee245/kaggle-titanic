@@ -2,3 +2,5 @@ others/
 .ipynb_checkpoints/
 titanic-env/
 .vscode/
+mlruns/
+__pycache__/
