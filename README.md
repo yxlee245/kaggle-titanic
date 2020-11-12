@@ -34,6 +34,7 @@ pip install -r requirements.txt
 jupyter notebook
 ```
 Alternative is to view the notebook in VS Code
+
 5. Run the training scripts for the ML models:
 ```
 python train_log_reg_v1.py
@@ -44,7 +45,6 @@ python knn_v1.py
 ```
 mlflow ui
 ```
-and access http://localhost:5000 on your browser.
-
+and access http://localhost:5000 on your browser.<br>
 You should see something like this if the MLFLow UI is started up successfully:
 ![mlflow-ui](imgs/mlflow-ui.jpg)
