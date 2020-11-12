@@ -10,14 +10,15 @@ from util import (
 
 
 if __name__ == "__main__":
+    # Data cleaning step
     data_prep_util = DataPrepUtil()
     X_train, y_train = data_prep_util.load_train_data(config.get('paths').get('train_data'))
     X_train, X_test, y_train, y_test = train_test_split(
         X_train, y_train, test_size=config.get('test_size'), random_state=config.get('random_state'),
         stratify=y_train
     )
-    # X_test, _ = data_prep_util.transform_data(config.get('paths').get('test_data'), store_ids=True)
-    
+
+    # Hyperparameter tuning, metric and parameter logging
     mlflow.set_experiment(config.get('mlflow').get('exp_name'))
     RUN_NAME = os.path.basename(__file__).split('.')[0]
     with mlflow.start_run(run_name=RUN_NAME):

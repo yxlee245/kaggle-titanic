@@ -9,6 +9,7 @@ from util import (
 )
 
 if __name__ == "__main__":
+    # Data cleaning step
     data_prep_util = DataPrepUtil()
     X_train, y_train = data_prep_util.load_train_data(config.get('paths').get('train_data'))
     X_train, X_test, y_train, y_test = train_test_split(
@@ -16,6 +17,7 @@ if __name__ == "__main__":
         stratify=y_train
     )
 
+    # Hyperparameter tuning, metric and parameter logging
     mlflow.set_experiment(config.get('mlflow').get('exp_name'))
     RUN_NAME = os.path.basename(__file__).split('.')[0]
     with mlflow.start_run(run_name=RUN_NAME):
